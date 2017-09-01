@@ -1,0 +1,11 @@
+insert into developers (first_name,last_name,email) values ('Vasya','Pupkin','vasys.pupkin@gmail.com'),('Sreva','Rozum','sveta.rozum@gmail.com'),('Sergey','Karpov','sergey.karpov@gmail.com');
+insert into developers (first_name,last_name,email) values ('Vadim','Kozlov','vadim.k@gmail.com'),('Vanessa','Korzj','vanessa.korzj@gmail.com'),('Ivanna','Surkova','ivanna.surkova@gmail.com');
+insert into skills (skill_name) values ('Hibernate'),('SQL'),('Spring framework'),('CSS'),('JavaScript');
+insert into projects (project_name) values ('inspector'),('informer'),('BigData'),('ClientBankAval'),('SMS_DMA');
+insert into customers (customer_name) values ('BankAval'),('DMA'),('TegGroup');
+insert into companies (company_name) values ('EPAM'),('GroupLogic');
+insert into employees_company (company_id,developer_id) values (1,1),(1,2),(2,3),(2,4),(2,5),(2,6);
+insert into developers_skills (skill_id,developer_id) values (1,1),(1,2),(2,2),(2,6),(3,3),(4,4),(5,5),(5,6);
+insert into company_project (company_id,project_id) values (1,2),(1,1),(1,3),(2,4),(2,1),(2,5);
+insert into custumer_project (customer_id,project_id) values (1,4),(2,5),(3,1),(3,2),(3,3);
+insert into project_developers (project_id,developer_id) values (2,1),(2,2),(1,1),(3,2),(4,3),(4,4),(4,5),(5,6);

@@ -1,0 +1,15 @@
+CREATE SEQUENCE developers_ids;
+CREATE TABLE developers (developer_id bigint PRIMARY KEY DEFAULT NEXTVAL('developers_ids'), first_name varchar(125) NOT NULL, last_name varchar(125) NOT NULL, email varchar(125) NOT NULL UNIQUE);
+CREATE SEQUENCE skills_ids;
+CREATE TABLE skills (skill_id integer PRIMARY KEY DEFAULT NEXTVAL('skills_ids'),skill_name varchar(150) NOT NULL UNIQUE,skill_description varchar);
+CREATE TABLE developers_skills (skill_id bigint REFERENCES skills(skill_id),developer_id bigint REFERENCES developers(developer_id));
+CREATE SEQUENCE companies_ids;
+CREATE TABLE companies (company_id integer PRIMARY KEY DEFAULT NEXTVAL('companies_ids'),company_name varchar(125) NOT NULL UNIQUE,company_country varchar);
+CREATE TABLE employees_company (developer_id bigint REFERENCES developers(developer_id),company_id integer REFERENCES companies(company_id));
+CREATE SEQUENCE projects_ids;
+CREATE TABLE projects (project_id bigint PRIMARY KEY DEFAULT NEXTVAL('projects_ids'),project_name varchar(150) NOT NULL UNIQUE,project_description varchar);
+CREATE TABLE project_developers (project_id bigint REFERENCES projects(project_id),developer_id bigint REFERENCES developers(developer_id));
+CREATE TABLE company_project (company_id integer REFERENCES companies(company_id),project_id bigint REFERENCES projects(project_id));
+CREATE SEQUENCE customers_ids;
+CREATE TABLE customers (customer_id bigint PRIMARY KEY DEFAULT NEXTVAL('customers_ids'),customer_name varchar(150) NOT NULL UNIQUE,customer_description varchar);
+CREATE TABLE custumer_project (customer_id bigint REFERENCES customers(customer_id),project_id bigint REFERENCES projects(project_id));
